@@ -67,7 +67,6 @@
                 ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
                 ctx.globalCompositeOperation = 'destination-out';
                 underImage.style.opacity = '1'; // Pokaż obrazek spod spodu po załadowaniu obrazka na wierzchu
-                underImage.style.transition = 'opacity 0.3s ease'; // Dodany efekt przejścia
             };
         }
 
@@ -110,7 +109,7 @@
             let rect = canvas.getBoundingClientRect();
             let clientX, clientY;
 
-            if (evt.type === 'touchstart' || evt.type === 'touchmove') {
+            if (evt.type.startsWith('touch')) {
                 clientX = evt.touches[0].clientX;
                 clientY = evt.touches[0].clientY;
             } else {
